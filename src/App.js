@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
-import { Heading, Center, Button, FormLabel, Input } from '@chakra-ui/react';
+import { Helmet } from 'react-helmet';
+import { Heading, Button, FormLabel, Input } from '@chakra-ui/react';
 
 import Hashtags from "./Hashtags";
 
@@ -26,7 +27,6 @@ function App() {
           const response = await fetch(url, options);
           const result = await response.json();
           setHashtag(result);
-          console.log(result)
         } catch (error) {
           console.error(error);
         }
@@ -37,24 +37,28 @@ function App() {
     setTimeout(()=>{
       setFormSubmitted(false);
     }, 2000);
-    console.log(formSubmitted);
   }
 
   useEffect(()=>{ }, []);
 
   return (
-    <Center>
-      <div className="App">
-          <Heading bg="blue.500" color="white">Hash Tag Finder</Heading>
-          <Hashtags hashtag={hashtag} />
-          <form onSubmit={handleSubmit}>
-            <FormLabel>Search for hashtags</FormLabel>
-            <Input placeholder='Search' value={search} onChange={(e) => setSearch(e.target.value)} />
-            <Button colorScheme='blue' type="submit">Search</Button>
-          </form>
-          <footer>Footer</footer>
+    <div className="App" style={{textAlign: 'center', height: '100vh', background: '#F2F8FF'}}>
+      <Helmet>
+        <meta property="og:title" content="TagMagnet - Discover Trending Hashtags" />
+        <meta property="og:description" content="Find the most popular hashtags for your Instagram posts with TagMagnet. Boost your reach and engagement with trending tags." />
+      </Helmet>
+      <Heading bg="linear-gradient(90deg, rgba(76,173,239,1) 0%, rgba(8,124,172,1) 50%, rgba(76,173,239,1) 100%)" color="white" padding={'4'}>Tag Magnet</Heading>
+      <div style={{display: 'flex', flexDirection: 'column', padding : '10px'}}>
+        <form onSubmit={handleSubmit}>
+          <FormLabel>Search for hashtags</FormLabel>
+          <div style={{display: 'flex', flexDirection: 'row', gap: '10px'}}>
+          <Input placeholder='Search' value={search} onChange={(e) => setSearch(e.target.value)} />
+          <Button bg={'#1895D9'} type="submit" color={'white'}>Search</Button>
+          </div>
+        </form>
+        <Hashtags hashtag={hashtag} />
       </div>
-    </Center>
+    </div>
   );
 }
 
