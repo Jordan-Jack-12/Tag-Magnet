@@ -54,7 +54,3 @@ TagMagnet is released under the [MIT License](LICENSE).
 For any inquiries or questions, please reach out to us.
 
 Enjoy exploring trending hashtags and boosting your Instagram presence with TagMagnet!
-
----
-
-*Note: Add any additional sections or information as needed for your specific app. Include relevant badges, screenshots, or links to the live version of the app if available.*
