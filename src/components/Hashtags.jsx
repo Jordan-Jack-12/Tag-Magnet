@@ -2,7 +2,8 @@ import { Heading } from '@chakra-ui/react'
 import React from 'react'
 
 const Hashtags = ({ hashtag }) => {
-    if (hashtag !== [] && hashtag !== null){
+    if (hashtag.length > 0){
+        console.log("yess data", hashtag)
         return (
             <div style={{padding : '10px', borderRadius: '10px', background : '#fff', margin: '10px'}}>
                 {Object.entries(hashtag).map(([key, array])=>(
@@ -19,11 +20,10 @@ const Hashtags = ({ hashtag }) => {
                     </div>
                 ))}
             </div>
-          )
-    }else{
-        return(
-            <></>
         )
+    }else{
+        console.log("not data")
+        return <div style={{display: 'none'}}></div>
     }
 
 }
