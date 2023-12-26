@@ -26,12 +26,13 @@ const HomePage = () => {
                 try {
                     const response = await fetch(url, options);
                     const result = await response.json();
-                    setHashtag(result);
+                    setHashtag(result.tags);
                 } catch (error) {
                     console.error(error);
                 }
             };
             fetchSeacrh();
+            console.log(hashtag)
         }
         setFormSubmitted(true);
         setTimeout(() => {
@@ -49,10 +50,13 @@ const HomePage = () => {
                     </div>
                 </form>
             </div>
-            {hashtag &&
-                <div style={{ padding: '10px', marginLeft: '20vw', marginRight: '20vw', minHeight: '70vh' }}>
-                    <Hashtags hashtag={hashtag} />
-                </div>}
+            <div style={{ padding: '10px', marginLeft: '20vw', marginRight: '20vw', minHeight: '70vh' }}>
+                {hashtag.length > 0 ? 
+                <Hashtags hashtag={hashtag} />
+                :
+                <></>
+            }
+            </div>
         </div>
     )
 }

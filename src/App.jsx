@@ -12,9 +12,6 @@ import TermsAndConditions from './pages/TermsAndConditions'
 import NotFound from './pages/NotFound';
 
 function App() {
-
-
-
   return (
     <div className="App" style={{ textAlign: 'center', height: '100vh', background: '#F2F8FF' }}>
       {/* <Heading bg="linear-gradient(90deg, rgba(76,173,239,1) 0%, rgba(8,124,172,1) 50%, rgba(76,173,239,1) 100%)" color="white" padding={'4'}>Tag Magnet</Heading> */}

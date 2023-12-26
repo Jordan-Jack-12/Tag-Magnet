@@ -8,7 +8,7 @@ const NavBar = () => {
                 <Heading>TAG MAGNET</Heading>
             </div>
             <div style={{display: 'flex', gap: '10px'}}>
-                <a href="/home">HOME</a>
+                <a href="/">HOME</a>
                 <a href="/about">ABOUT</a>
             </div>
         </nav>
