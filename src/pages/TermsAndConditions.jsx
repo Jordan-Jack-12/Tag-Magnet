@@ -2,9 +2,34 @@ import React from 'react'
 
 const TermsAndConditions = () => {
     return (
-        <div style={{marginLeft: '20vw', marginRight: '20vw', height: '-calc(100% - 63px)'}}>
-            <h1 style={{fontSize: '48px'}}>Terms And Conditions</h1>
-            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fuga consequatur accusamus tempore sunt. Totam voluptates aperiam aut ullam sequi placeat eveniet inventore qui expedita sapiente fuga incidunt commodi quidem officiis quo reprehenderit nisi, quisquam quibusdam maxime, consequatur nostrum provident. Voluptates ab architecto repellat accusantium quam soluta, dolor, ullam at nam quae porro voluptate doloremque iure perspiciatis! Maiores quasi labore ab vitae alias atque, velit minus.</p>
+        <div style={{ marginLeft: '20vw', marginRight: '20vw', minHeight: '80vh' }}>
+            <h1 style={{ fontSize: '48px' }}>Terms and Conditions</h1>
+
+            <p style={{textAlign: 'left', paddingLeft: '48px', paddingTop: '10px'}}>By accessing and using Tag Magnet, you agree to comply with and be bound by the following terms and conditions of use.</p>
+
+            <h2 style={{textAlign: 'left', fontSize: '24px', fontWeight: 'bold', paddingTop: '10px'}}>1. Acceptance of Terms</h2>
+
+            <p style={{textAlign: 'left', paddingLeft: '48px', paddingTop: '10px'}}>By accessing this website, you are agreeing to be bound by these website Terms and Conditions of Use, all applicable laws, and regulations, and agree that you are responsible for compliance with any applicable local laws.</p>
+
+            <h2 style={{textAlign: 'left', fontSize: '24px', fontWeight: 'bold', paddingTop: '10px'}}>2. User Conduct</h2>
+
+            <p style={{textAlign: 'left', paddingLeft: '48px', paddingTop: '10px'}}>While using Tag Magnet, you agree not to engage in conduct that may be considered illegal, unethical, or a violation of these Terms and Conditions.</p>
+
+            <h2 style={{textAlign: 'left', fontSize: '24px', fontWeight: 'bold', paddingTop: '10px'}}>3. Content</h2>
+
+            <p style={{textAlign: 'left', paddingLeft: '48px', paddingTop: '10px'}}>All content on Tag Magnet is provided for informational purposes only. We make no representations or warranties of any kind, express or implied, about the completeness, accuracy, reliability, suitability, or availability of the information.</p>
+
+            <h2 style={{textAlign: 'left', fontSize: '24px', fontWeight: 'bold', paddingTop: '10px'}}>4. Modifications</h2>
+
+            <p style={{textAlign: 'left', paddingLeft: '48px', paddingTop: '10px'}}>We reserve the right to revise these terms at any time without notice. By using this website, you agree to be bound by the current version of these Terms and Conditions.</p>
+
+            <h2 style={{textAlign: 'left', fontSize: '24px', fontWeight: 'bold', paddingTop: '10px'}}>5. Governing Law</h2>
+
+            <p style={{textAlign: 'left', paddingLeft: '48px', paddingTop: '10px'}}>These terms and conditions are governed by and construed in accordance with the laws of India, and you irrevocably submit to the exclusive jurisdiction of the courts in that location.</p>
+
+            <h2 style={{textAlign: 'left', fontSize: '24px', fontWeight: 'bold', paddingTop: '10px'}}>6. Contact Us</h2>
+
+            <p style={{textAlign: 'left', paddingLeft: '48px', paddingTop: '10px'}}>If you have any questions about these Terms and Conditions, please contact us at wolframstudio74w@gmail.com .</p>
         </div>
     )
 }

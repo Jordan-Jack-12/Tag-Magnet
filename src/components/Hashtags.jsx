@@ -10,7 +10,7 @@ const Hashtags = ({ hashtag }) => {
                                 <li key={index} style={{ listStyle: 'none' }}>#{item}</li>
                             ))}
                         </ul>
-                        : <Heading padding={'28'}>Result not found :(</Heading>
+                        : <Heading padding={'28'}>Result not found &#128532;</Heading>
                     }
         </div>
     )
