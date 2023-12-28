@@ -2,6 +2,7 @@ import React from 'react'
 import { useState } from "react";
 import { Button, FormLabel, Input } from '@chakra-ui/react';
 import { CircularProgress } from '@chakra-ui/react'
+import Style from './HomePage.module.css'
 
 import Hashtags from "../components/Hashtags";
 import AdBlock from '../components/AdBlock';
@@ -59,24 +60,28 @@ const HomePage = () => {
         }, 2000);
     }
     return (
-        <div>
-            <div style={{ padding: '10px', marginLeft: '20vw', marginRight: '20vw' }}>
-                <form onSubmit={handleSubmit}>
-                    <FormLabel>Search for hashtags</FormLabel>
-                    <div style={{ display: 'flex', flexDirection: 'row', gap: '10px' }}>
-                        <Input placeholder='Search' value={search} onChange={handleChange} />
-                        <Button bg={'#1895D9'} type="submit" color={'white'}>Search</Button>
-                    </div>
-                </form>
+        <div className={Style.container}>
+            <div className={Style.searchbox}>
+                <div style={{ padding: '10px',}}>
+                    <form onSubmit={handleSubmit}>
+                        <FormLabel>Search for hashtags</FormLabel>
+                        <div style={{ display: 'flex', flexDirection: 'row', gap: '10px' }}>
+                            <Input placeholder='Search' value={search} onChange={handleChange} />
+                            <Button bg={'#1895D9'} type="submit" color={'white'}>Search</Button>
+                        </div>
+                    </form>
+                </div>
+                <div style={{ padding: '10px', minHeight: '74vh' }}>
+                    {hashtag.length > 0 ?
+                        <Hashtags hashtag={hashtag} />
+                        :
+                        <><h1>{error && !loading && !noData && <>{error}</>}</h1> <h1>{!error && !loading && noData && <>No result Found </>}</h1> <h1>{!error && loading && !noData && <CircularProgress isIndeterminate color='blue.300' />}</h1></>
+                    }
+                </div>
             </div>
-            <div style={{ padding: '10px', marginLeft: '20vw', marginRight: '20vw', minHeight: '74vh' }}>
-                {hashtag.length > 0 ? 
-                <Hashtags hashtag={hashtag} />
-                :
-                <><h1>{error && !loading && !noData && <>{error}</>}</h1> <h1>{!error && !loading && noData && <>No result Found </>}</h1> <h1>{!error && loading && !noData && <CircularProgress isIndeterminate color='blue.300' />}</h1></>
-            }
+            <div style={{margin: '1rem'}}>
+                <AdBlock />
             </div>
-            <AdBlock/>
         </div>
     )
 }
