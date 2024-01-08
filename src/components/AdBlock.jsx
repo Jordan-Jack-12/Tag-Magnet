@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { Text } from '@chakra-ui/react'
+import { Link } from 'react-router-dom'
 
 const AdBlock = () => {
     const [affLinks, setAffLinks] = useState([])
@@ -32,11 +33,18 @@ const AdBlock = () => {
         return (
             <div>
                 <Text fontSize='xl'>Ads and Affiliates</Text>
-                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '10px' }}>
+                <div style={{ display: 'grid', gridTemplateColumns: 'auto', gap: '10px' }}>
                     {
                         affLinks.map((item, index) => {
                             return (
-                                <div key={index} dangerouslySetInnerHTML={{ __html: item.link }} />
+                                <div key={index}>
+                                    <div className='ad-block' >
+                                          <Link to={item.link}>
+                                              <img src={item.image_url} alt={item.name}/>
+                                              <p>{item.name}</p>
+                                          </Link>
+                                    </div>  
+                                </div>
                             )
                         })
                     }
