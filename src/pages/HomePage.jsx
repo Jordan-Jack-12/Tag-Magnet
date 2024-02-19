@@ -1,11 +1,12 @@
 import React from 'react'
 import { useState } from "react";
-import { Button, FormLabel, Input } from '@chakra-ui/react';
-import { CircularProgress } from '@chakra-ui/react'
-import Style from './HomePage.module.css'
+import { Button, FormLabel, Input, Heading } from '@chakra-ui/react';
+import { CircularProgress, Divider } from '@chakra-ui/react'
+import { VStack } from '@chakra-ui/react';
+import { Container, Box } from '@chakra-ui/react';
 
 import Hashtags from "../components/Hashtags";
-import AdBlock from '../components/AdBlock';
+import TopHashtagsTable from '../components/TopHashtagsTable';
 
 const HomePage = () => {
     const [formSubmitted, setFormSubmitted] = useState(false);
@@ -13,11 +14,18 @@ const HomePage = () => {
     const [error, setError] = useState("");
     const [noData, setNoData] = useState(false)
     const [hashtag, setHashtag] = useState([]);
+    const [hashtagForCopy, setHashtagForCopy] = useState("");
     const [search, setSearch] = useState([]);
 
     const handleChange = (e) => {
         const value = e.target.value;
         setSearch(value)
+    }
+
+    const formatHashTags = async (hashtag) => {
+        for (let i = 0; i < hashtag.length; i++){
+            setHashtagForCopy((prev) => prev += `#${hashtag[i]} `);
+        }
     }
 
     const handleSubmit = (e) => {
@@ -43,6 +51,7 @@ const HomePage = () => {
                     const result = await response.json();
                     if (result.tags.length > 0) {
                         setHashtag(result.tags);
+                        formatHashTags(result.tags);
                     } else {
                         setNoData(true)
                     }
@@ -59,30 +68,37 @@ const HomePage = () => {
             setFormSubmitted(false);
         }, 2000);
     }
+
+
     return (
-        <div className={Style.container}>
-            <div className={Style.searchbox}>
-                <div style={{ padding: '10px',}}>
-                    <form onSubmit={handleSubmit}>
-                        <FormLabel>Search for hashtags</FormLabel>
-                        <div style={{ display: 'flex', flexDirection: 'row', gap: '10px' }}>
-                            <Input placeholder='Search' value={search} onChange={handleChange} />
-                            <Button bg={'#1895D9'} type="submit" color={'white'}>Search</Button>
-                        </div>
-                    </form>
-                </div>
-                <div style={{ padding: '10px', minHeight: '74vh' }}>
-                    {hashtag.length > 0 ?
-                        <Hashtags hashtag={hashtag} />
-                        :
-                        <><h1>{error && !loading && !noData && <>{error}</>}</h1> <h1>{!error && !loading && noData && <>No result Found </>}</h1> <h1>{!error && loading && !noData && <CircularProgress isIndeterminate color='blue.300' />}</h1></>
-                    }
-                </div>
-            </div>
-            <div style={{margin: '1rem'}}>
-                <AdBlock />
-            </div>
-        </div>
+        <VStack>
+            <Container maxW={'4xl'}>
+                <VStack>
+                    <Container maxW={'4xl'}>
+                        <form onSubmit={handleSubmit}>
+                            <FormLabel textAlign={'center'}>Search for hashtags</FormLabel>
+                            <div style={{ display: 'flex', flexDirection: 'row', gap: '10px' }}>
+                                <Input placeholder='Search' value={search} onChange={handleChange} focusBorderColor='pink.400'/>
+                                <Button colorScheme='purple' type="submit">Search</Button>
+                            </div>
+                        </form>
+                    </Container>
+                    <Container maxW={'4xl'}>
+                        {hashtag.length > 0 ?
+                            <Hashtags hashtag={hashtag} hashtagForCopy={hashtagForCopy}/>
+                            :
+                            <><h1>{error && !loading && !noData && <>{error}</>}</h1> <h1>{!error && !loading && noData && <Box minH={'50px'}>No result Found </Box>}</h1> <h1>{!error && loading && !noData && <CircularProgress isIndeterminate color='pink.500' />}</h1></>
+                        }
+                    </Container>
+                </VStack>
+            <Divider />
+            </Container>
+            <Container maxW={'4xl'} marginBottom={'40px'}>
+                <Heading size={'md'} p={'10px'}>Top Hashtags</Heading>
+                <Divider />
+                <TopHashtagsTable />
+            </Container>
+        </VStack>
     )
 }
 

@@ -1,6 +1,4 @@
-
 import {Routes, Route} from 'react-router-dom'
-
 
 import NavBar from "./components/NavBar";
 import Footer from "./components/Footer";
@@ -10,6 +8,7 @@ import Disclaimer from './pages/Disclaimer';
 import PrivacyPolicies from './pages/PrivacyPolicies';
 import TermsAndConditions from './pages/TermsAndConditions'
 import NotFound from './pages/NotFound';
+import { Divider } from '@chakra-ui/react';
 
 function App() {
   return (
@@ -23,6 +22,7 @@ function App() {
         <Route path='/privacy-policies' element={<PrivacyPolicies/>}/>
         <Route path='*' element={<NotFound/>}/>
       </Routes>
+      <Divider />
       <Footer />
     </div>
   );

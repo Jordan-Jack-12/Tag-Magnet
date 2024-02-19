@@ -1,19 +1,25 @@
 import React from 'react'
-import { Heading } from '@chakra-ui/react'
-import Style from './NavBar.module.css'
+import { Heading, Flex, Spacer, Container } from '@chakra-ui/react'
+import { Box } from '@chakra-ui/react';
 import { Link } from 'react-router-dom'
 
 const NavBar = () => {
     return (
-        <nav style={{display: 'flex', justifyContent: "space-around", alignItems: 'center', background: 'linear-gradient(90deg, rgba(76,173,239,1) 0%, rgba(8,124,172,1) 50%, rgba(76,173,239,1) 100%)', color: 'white' }}>
-            <div style={{padding: '10px'}} className={Style.logo}>
-                <Heading>TAG MAGNET</Heading>
-            </div>
-            <div className={Style.link} style={{display: 'flex', gap: '10px'}}>
-                <Link to="/">HOME</Link>
-                <Link to="/about">ABOUT</Link>
-            </div>
-        </nav>
+        <Box as="nav" role="navigation" bgGradient={'linear(to-r, #7928CA, #FF0080)'} color={'white'}>
+            <Container maxW='4xl'>
+                    <Flex align={'center'} minH='80px'>
+                        <Box>
+                            <Heading size={'lg'} fontFamily='anta'>tag magnet</Heading>
+                        </Box>
+                        <Spacer />
+                        <Flex minW='100px' fontWeight={'bold'}>
+                            <Link to="/">home</Link>
+                            <Spacer/>
+                            <Link to="/about">about</Link>
+                        </Flex>
+                    </Flex>
+            </Container>
+        </Box>
     )
 }
 

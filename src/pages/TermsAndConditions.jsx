@@ -1,8 +1,9 @@
 import React from 'react'
+import { Container } from '@chakra-ui/react';
 
 const TermsAndConditions = () => {
     return (
-        <div style={{ marginLeft: '20vw', marginRight: '20vw', minHeight: '80vh' }}>
+        <Container maxW='4xl' marginBottom={'40px'}>
             <h1 style={{ fontSize: '48px' }}>Terms and Conditions</h1>
 
             <p style={{textAlign: 'left', paddingLeft: '48px', paddingTop: '10px'}}>By accessing and using Tag Magnet, you agree to comply with and be bound by the following terms and conditions of use.</p>
@@ -30,7 +31,7 @@ const TermsAndConditions = () => {
             <h2 style={{textAlign: 'left', fontSize: '24px', fontWeight: 'bold', paddingTop: '10px'}}>6. Contact Us</h2>
 
             <p style={{textAlign: 'left', paddingLeft: '48px', paddingTop: '10px'}}>If you have any questions about these Terms and Conditions, please contact us at wolframstudio74w@gmail.com .</p>
-        </div>
+        </Container>
     )
 }
 
