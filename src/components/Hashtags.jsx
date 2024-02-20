@@ -1,5 +1,4 @@
-import { Heading, VStack, Button } from '@chakra-ui/react';
-import {HStack, Tag } from '@chakra-ui/react'
+import { Heading, VStack, Button, HStack, Tag } from '@chakra-ui/react';
 import { useState } from 'react';
 
 const Hashtags = ({ hashtag, hashtagForCopy }) => {
@@ -7,10 +6,8 @@ const Hashtags = ({ hashtag, hashtagForCopy }) => {
     const onCopy = async (e) => {
         e.preventDefault();
             await navigator.clipboard.writeText(hashtagForCopy);
-            console.log(hashtagForCopy)
             setHasCopied(true);
     }
-
 
     return (
         <div style={{ padding: '10px', borderRadius: '10px', background: '#fff', margin: '10px' }}>
@@ -33,6 +30,3 @@ const Hashtags = ({ hashtag, hashtagForCopy }) => {
 }
 
 export default Hashtags
-
-
-/* */

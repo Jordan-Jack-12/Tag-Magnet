@@ -1,9 +1,6 @@
 import React from 'react'
 import { useState } from "react";
-import { Button, FormLabel, Input, Heading } from '@chakra-ui/react';
-import { CircularProgress, Divider } from '@chakra-ui/react'
-import { VStack } from '@chakra-ui/react';
-import { Container, Box } from '@chakra-ui/react';
+import { Button, FormLabel, Input, Heading, Container, Box, VStack, CircularProgress, Divider } from '@chakra-ui/react';
 
 import Hashtags from "../components/Hashtags";
 import TopHashtagsTable from '../components/TopHashtagsTable';

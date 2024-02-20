@@ -1,5 +1,5 @@
 import { ButtonGroup, Container, IconButton, Stack, Text, Heading } from '@chakra-ui/react'
-import { FaGithub, FaLinkedin, FaTwitter } from 'react-icons/fa';
+import { FaGithub, FaTwitter } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 
 const Footer = () => (
@@ -21,7 +21,6 @@ const Footer = () => (
             <Stack justify="space-between" direction="row" align="center">
                 <Heading size={'md'} fontFamily={'anta'}>tag magnet</Heading>
                 <ButtonGroup variant="tertiary">
-                    <IconButton as="a" href="https://www.linkedin.com/in/suresh-kumar-ekka-b1081627b/" aria-label="LinkedIn" icon={<FaLinkedin />} />
                     <IconButton as="a" href="https://github.com/Jordan-Jack-12/" aria-label="GitHub" icon={<FaGithub />} />
                     <IconButton as="a" href="https://twitter.com/JordanJ8D" aria-label="Twitter" icon={<FaTwitter />} />
                 </ButtonGroup>

@@ -6,11 +6,13 @@ import {
     Th,
     Td,
     TableContainer,
+    Text,
 } from '@chakra-ui/react'
 import { useEffect, useState } from 'react';
 
 const TopHashtagsTable = () => {
     const [topHashTags, setTopHashTags] = useState([]);
+    const [error, setError] = useState("");
 
     const getTopHashTags = async () => {
         const url = 'https://top-instagram-hashtag.p.rapidapi.com/hashtags';
@@ -23,6 +25,7 @@ const TopHashtagsTable = () => {
         };
 
         try {
+            setError("");
             const tophashtagslocal = JSON.parse(sessionStorage.getItem('tophashtags'));
             if (tophashtagslocal !== null){
                 setTopHashTags(tophashtagslocal);
@@ -34,6 +37,7 @@ const TopHashtagsTable = () => {
             }
             
         } catch (error) {
+            setError("Error")
             console.error(error);
         }
     }
@@ -53,7 +57,7 @@ const TopHashtagsTable = () => {
                         </Tr>
                     </Thead>
                     <Tbody>
-                        {topHashTags.map((item) => {
+                        {topHashTags && topHashTags.map((item) => {
                             return (
                                 <Tr key={item.tag}>
                                     <Td>{item.tag}</Td>
@@ -65,6 +69,7 @@ const TopHashtagsTable = () => {
                     </Tbody>
                 </Table>
             </TableContainer>
+            {error && <Text color='tomato'>{error}</Text>}
         </>
     )
 }
